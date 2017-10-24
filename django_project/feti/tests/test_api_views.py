@@ -28,7 +28,8 @@ class TestApiView(TestCase):
         with patch('feti.celery.update_search_index.delay') as mock:
             self.campus = CampusFactory.create(
                 campus=u'campus_tests',
-                courses=(self.course,)
+                courses=(self.course,),
+                campus_location=u'-33.957644930879034,18.4607218013494'
             )
             self.mock = mock
         call_command('rebuild_index', '--noinput')
@@ -59,7 +60,8 @@ class TestApiAutocomplete(TestCase):
         with patch('feti.celery.update_search_index.delay') as mock:
             self.campus = CampusFactory.create(
                 campus=u'campus_tests',
-                courses=(self.course,)
+                courses=(self.course,),
+                campus_location=u'-33.957644930879034,18.4607218013494'
             )
             self.mock = mock
         call_command('rebuild_index', '--noinput')
