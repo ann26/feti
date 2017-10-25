@@ -29,7 +29,6 @@ class TestApiView(TestCase):
             self.campus = CampusFactory.create(
                 campus=u'campus_tests',
                 courses=(self.course,),
-                location=u'-33.957644930879034,18.4607218013494'
             )
             self.mock = mock
         call_command('rebuild_index', '--noinput')
@@ -61,7 +60,6 @@ class TestApiAutocomplete(TestCase):
             self.campus = CampusFactory.create(
                 campus=u'campus_tests',
                 courses=(self.course,),
-                location=u'-33.957644930879034,18.4607218013494'
             )
             self.mock = mock
         call_command('rebuild_index', '--noinput')
